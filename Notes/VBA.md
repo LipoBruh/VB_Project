@@ -421,6 +421,8 @@ Sub ReadFileToCollection()
 End Sub
 ```
 
+
+
 Array + Write to sheet:
 ```VB
 Sub ParseLinesToSheet()
