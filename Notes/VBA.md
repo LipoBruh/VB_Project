@@ -445,3 +445,29 @@ Sub ParseLinesToSheet()
     Next i
 End Sub
 ```
+
+
+
+
+
+
+### Auto Filter
+The following line can be read as "On the worksheet, find the region of squares adjacent to A1 and filter the column with id colIndex cased on the string criteria item, using the mode xlFilterValues".
+`ws.range("A1").CurrentRegion.AutoFilter Field:=colIndex, Criteria1:=item, Operator:=xlFilterValues`
+
+Filters in Excel (via AutoFilter) are cumulative as long as they affect different columns. However, if you're applying multiple filters to the same column, the filters will override each other, and only the last filter will be active for that column.
+
+
+Filtering modes:
+
+| **Operator**           | **Meaning**                                                            | **Use Case**                                                               |
+|------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------------|
+| `xlAnd`                | Combines multiple criteria where both conditions must be true.        | Filters for values that meet **all** conditions (logical AND).            |
+| `xlOr`                 | Combines multiple criteria where either condition can be true.       | Filters for values that meet **at least one** of the conditions (logical OR). |
+| `xlTop10Items`         | Filters for the top `n` items based on a specific column.             | Display the top `n` highest values in the column (e.g., top 10 sales).    |
+| `xlBottom10Items`      | Filters for the bottom `n` items based on a specific column.          | Display the bottom `n` lowest values in the column (e.g., bottom 10 sales). |
+| `xlTop10Percent`       | Filters for the top `n%` of items based on a specific column.         | Display the top `n%` highest values (e.g., top 10% of income earners).    |
+| `xlBottom10Percent`    | Filters for the bottom `n%` of items based on a specific column.      | Display the bottom `n%` lowest values (e.g., bottom 10% of grades).       |
+| `xlFilterValues`       | Filters based on a list of predefined values.                          | Display rows that match any of a set of specific values (e.g., product categories). |
+| `xlFilterDynamic`      | Filters based on dynamic criteria, such as dates or times.            | Filters based on time ranges or dynamic data comparisons.                 |
+| `xlCustom`             | Allows defining custom filters with complex conditions.               | Useful for advanced conditions like **contains**, **does not contain**, etc. |

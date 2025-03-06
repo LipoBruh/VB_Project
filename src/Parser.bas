@@ -170,7 +170,7 @@ Public Sub WriteDataToSheet()
     
         Debug.Print "Item: " & item
         '
-        values = regexpSplit(CStr(item), "\s+")
+        values = regexpSplit(CStr(item), "\s+") 'add a (1.00)1\d regex to split digis stuck together
         '
         ' Loop through each value and place it in the Excel sheet
         For j = LBound(values) To UBound(values)
