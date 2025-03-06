@@ -101,9 +101,23 @@ End Sub
 
 
 Public Sub FindAtoms()
+
+    pWs.Cells(1,1).Value = "PDB Category"
+    pWs.Cells(1,2).Value = "Atom ID"
+    pWs.Cells(1,3).Value = "Atom Name"
+    pWs.Cells(1,4).Value = "Residue"
+    pWs.Cells(1,5).Value = "Prot. Chain"
+    pWs.Cells(1,6).Value = "Residue Number"
+    pWs.Cells(1,7).Value = "X"
+    pWs.Cells(1,8).Value = "Y"
+    pWs.Cells(1,9).Value = "Z"
+    pWs.Cells(1,10).Value = "Occupancy"
+    pWs.Cells(1,11).Value = "B-Factor"
+    pWs.Cells(1,12).Value = "Element"
     'update attributes
     Set pFilteredData = New Collection 'clears old data
     pSheetNumber = 1
+    Sheets(pSheetNumber).Name = "Atoms"
     'Variables
     Dim item As Variant
 
@@ -150,7 +164,7 @@ Public Sub WriteDataToSheet()
     
     ' Loop through each line and split it
     Dim i As Integer, j As Integer
-    i = 1
+    i = 2
     
     For Each item In pFilteredData
     
